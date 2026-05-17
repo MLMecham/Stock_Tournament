@@ -8,10 +8,10 @@ __pycache__/
 dist/
 build/
 *.so
+test_anthropic_api.py
 
 # uv
 .uv/
-uv.lock
 
 # Virtual environments
 .venv/
