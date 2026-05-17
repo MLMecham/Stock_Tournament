@@ -1,0 +1,44 @@
+name: Daily Update
+
+on:
+  schedule:
+    - cron: "17 21 * * 1-5" # 21:17 UTC = ~5:17pm ET
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Settle outcomes and train model
+        run: |
+          uv run python src/update.py
+          uv run python src/train.py
+
+      - name: Commit and push data
+        run: |
+          git config user.name "${{ secrets.GIT_USER_NAME }}"
+          git config user.email "${{ secrets.GIT_USER_EMAIL }}"
+          git add data/outcomes/ data/training/ model/ results/
+          git diff --staged --quiet || git commit -m "data: market close $(date +%Y-%m-%d) [skip ci]"
+          git push
+
+      # Requires a PAT with repo + workflow scope stored as REPO_TOKEN.
+      # GITHUB_TOKEN cannot trigger downstream workflow runs.
+      - name: Trigger render workflow
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.REPO_TOKEN }}
+          event-type: render-readme

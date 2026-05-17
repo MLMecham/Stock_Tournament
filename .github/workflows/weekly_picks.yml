@@ -1,0 +1,38 @@
+name: Weekly Picks
+
+on:
+  schedule:
+    - cron: "17 14 * * 1" # 14:17 UTC = ~10:17am ET
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  picks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Run picks
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+        run: uv run python src/pick.py
+
+      - name: Commit and push picks
+        run: |
+          git config user.name "${{ secrets.GIT_USER_NAME }}"
+          git config user.email "${{ secrets.GIT_USER_EMAIL }}"
+          git add data/picks/
+          git diff --staged --quiet || git commit -m "picks: week $(date +%V) [skip ci]"
+          git push
