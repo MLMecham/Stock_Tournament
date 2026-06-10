@@ -15,6 +15,7 @@ MODEL_PATH = Path("model/random_forest.pkl")
 SCALER_PATH = Path("model/scaler.pkl")
 METADATA_PATH = Path("model/metadata.json")
 MIN_ROWS = 30
+FEATURE_COLS = ["rsi_14", "momentum_30", "volume_zscore_20", "macd_signal", "bollinger_width_20"]
 
 
 def load_training_data() -> pl.DataFrame:
@@ -34,7 +35,7 @@ def main() -> None:
         print(f"insufficient data ({len(df)} rows), skipping")
         sys.exit(0)
 
-    feature_cols = [c for c in df.columns if c not in ("ticker", "date", "return_pct", "label")]
+    feature_cols = FEATURE_COLS
     df = df.with_columns(
         (pl.col("return_pct") > 0).cast(pl.Int8).alias("label")
     ).drop_nulls()

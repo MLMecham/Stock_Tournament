@@ -13,12 +13,20 @@ def get_prices(tickers: list[str], period: str) -> pl.DataFrame:
             if len(tickers) > 1
             else raw[["Open", "High", "Low", "Close", "Volume"]]
         )
-        frames.append(
+        frame = (
             pl.from_pandas(sub.reset_index())
             .rename({"Date": "date", "Open": "open", "High": "high",
                      "Low": "low", "Close": "close", "Volume": "volume"})
+            .drop_nulls(subset=["close"])
+            .with_columns(pl.col("volume").cast(pl.Float64))
             .with_columns(pl.lit(ticker).alias("ticker"))
         )
+        # Delisted tickers come back as all-NaN; skip them so one bad
+        # symbol doesn't break the whole batch.
+        if frame.is_empty():
+            print(f"  warning: no price data for {ticker}, skipping")
+            continue
+        frames.append(frame)
 
     return pl.concat(frames)
 

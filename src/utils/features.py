@@ -42,6 +42,8 @@ def build_feature_matrix(tickers: list[str]) -> pl.DataFrame:
     rows: list[dict] = []
     for ticker in tickers:
         sub = prices.filter(pl.col("ticker") == ticker).sort("date")
+        if sub.is_empty():
+            continue
         close = sub["close"]
         vol = sub["volume"]
 

@@ -14,10 +14,10 @@ UNIVERSE: list[str] = [
     "MRK",  "TMO",  "ABT",  "DHR",  "BMY",
     "AMGN", "GILD", "ISRG", "SYK",  "ELV",
     "CVS",  "HUM",
-    # Energy (13)
+    # Energy (12) — HES removed 2026-06: delisted after Chevron acquisition
     "XOM",  "CVX",  "COP",  "EOG",  "SLB",
     "PSX",  "MPC",  "VLO",  "OXY",  "HAL",
-    "DVN",  "HES",  "BKR",
+    "DVN",  "BKR",
     # Consumer Staples (13)
     "PG",   "KO",   "PEP",  "WMT",  "COST",
     "MDLZ", "CL",   "GIS",  "MO",   "PM",

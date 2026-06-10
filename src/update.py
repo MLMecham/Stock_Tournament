@@ -62,7 +62,7 @@ def settle_week(year: int, week: int, today: date) -> None:
     out_path = OUTCOMES_DIR / f"year={year}" / f"week={week}.parquet"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     outcomes.write_parquet(out_path, compression="snappy")
-    print(f"  {year}W{week:02d}: settled {len(outcomes)} picks → {out_path}")
+    print(f"  {year}W{week:02d}: settled {len(outcomes)} picks -> {out_path}")
 
     features = build_feature_matrix(UNIVERSE)
     training = outcomes.join(features, on="ticker", how="left").drop_nulls()
@@ -70,7 +70,7 @@ def settle_week(year: int, week: int, today: date) -> None:
     train_path = TRAINING_DIR / f"year={year}" / f"week={week}.parquet"
     train_path.parent.mkdir(parents=True, exist_ok=True)
     training.write_parquet(train_path, compression="snappy")
-    print(f"  {year}W{week:02d}: training rows → {train_path}")
+    print(f"  {year}W{week:02d}: training rows -> {train_path}")
 
 
 def build_performance(con: duckdb.DuckDBPyConnection) -> dict:
