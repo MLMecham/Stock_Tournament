@@ -40,4 +40,7 @@ def get_sp500_return(start_date: str) -> float:
     """SPY total return from start_date (YYYY-MM-DD) to today."""
     raw = yf.download("SPY", start=start_date, auto_adjust=True, progress=False)
     close = raw["Close"]
+    if hasattr(close, "columns"):  # MultiIndex columns: still a DataFrame for one ticker
+        close = close.iloc[:, 0]
+    close = close.dropna()  # today's row can be NaN before close is finalized
     return float((close.iloc[-1] - close.iloc[0]) / close.iloc[0])

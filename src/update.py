@@ -83,7 +83,8 @@ def build_performance(con: duckdb.DuckDBPyConnection) -> dict:
 
     try:
         spy_return_pct = get_sp500_return(str(all_outcomes["pick_date"].min())) * 100
-    except Exception:
+    except Exception as e:
+        print(f"warning: SPY return fetch failed ({e}), using 0.0")
         spy_return_pct = 0.0
 
     perf = {}
