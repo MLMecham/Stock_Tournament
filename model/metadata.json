@@ -1,8 +1,8 @@
 {
-  "trained_at": "2026-06-15T23:10:02.883126+00:00",
-  "val_accuracy": 0.7733333333333333,
-  "val_f1": 0.8310173160173161,
-  "n_training_rows": 75,
+  "trained_at": "2026-06-22T22:55:57.181347+00:00",
+  "val_accuracy": 0.7947368421052632,
+  "val_f1": 0.8323745819397994,
+  "n_training_rows": 93,
   "feature_names": [
     "rsi_14",
     "momentum_30",
