@@ -1,7 +1,7 @@
 {
   "Boomer Bob": {
     "return_pct": 1.01,
-    "vs_sp500": -3.31,
+    "vs_sp500": -3.95,
     "wins": 21,
     "losses": 15,
     "best_pick": "MSFT (24.7%)",
@@ -9,7 +9,7 @@
   },
   "Claude": {
     "return_pct": 1.15,
-    "vs_sp500": -3.17,
+    "vs_sp500": -3.81,
     "wins": 21,
     "losses": 15,
     "best_pick": "MU (24.6%)",
@@ -17,7 +17,7 @@
   },
   "Momentum Mike": {
     "return_pct": 0.11,
-    "vs_sp500": -4.21,
+    "vs_sp500": -4.85,
     "wins": 10,
     "losses": 11,
     "best_pick": "MU (11.1%)",
@@ -25,7 +25,7 @@
   },
   "Random Randy": {
     "return_pct": -0.43,
-    "vs_sp500": -4.75,
+    "vs_sp500": -5.38,
     "wins": 20,
     "losses": 16,
     "best_pick": "MCO (10.6%)",
@@ -33,7 +33,7 @@
   },
   "Reddit Rita": {
     "return_pct": 1.22,
-    "vs_sp500": -3.1,
+    "vs_sp500": -3.73,
     "wins": 25,
     "losses": 11,
     "best_pick": "KLAC (13.3%)",
@@ -41,7 +41,7 @@
   },
   "Rick RF": {
     "return_pct": 0.58,
-    "vs_sp500": -3.73,
+    "vs_sp500": -4.37,
     "wins": 18,
     "losses": 15,
     "best_pick": "KLAC (21.7%)",
