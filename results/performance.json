@@ -1,49 +1,49 @@
 {
   "Boomer Bob": {
-    "return_pct": 1.11,
-    "vs_sp500": -4.26,
-    "wins": 24,
-    "losses": 15,
+    "return_pct": 0.91,
+    "vs_sp500": -3.96,
+    "wins": 25,
+    "losses": 17,
     "best_pick": "MSFT (24.7%)",
     "worst_pick": "MSFT (-13.0%)"
   },
   "Claude": {
-    "return_pct": 1.19,
-    "vs_sp500": -4.18,
-    "wins": 24,
+    "return_pct": 1.13,
+    "vs_sp500": -3.74,
+    "wins": 27,
     "losses": 15,
     "best_pick": "MU (24.6%)",
     "worst_pick": "NOW (-21.3%)"
   },
   "Momentum Mike": {
-    "return_pct": 0.54,
-    "vs_sp500": -4.84,
-    "wins": 13,
-    "losses": 11,
+    "return_pct": 0.1,
+    "vs_sp500": -4.77,
+    "wins": 14,
+    "losses": 13,
     "best_pick": "MU (11.1%)",
     "worst_pick": "KLAC (-15.0%)"
   },
   "Random Randy": {
-    "return_pct": -0.39,
-    "vs_sp500": -5.77,
-    "wins": 22,
-    "losses": 17,
-    "best_pick": "MCO (10.6%)",
+    "return_pct": -0.09,
+    "vs_sp500": -4.97,
+    "wins": 24,
+    "losses": 18,
+    "best_pick": "VLO (11.5%)",
     "worst_pick": "INTU (-25.2%)"
   },
   "Reddit Rita": {
-    "return_pct": 1.47,
-    "vs_sp500": -3.91,
-    "wins": 28,
+    "return_pct": 1.51,
+    "vs_sp500": -3.36,
+    "wins": 31,
     "losses": 11,
     "best_pick": "KLAC (13.3%)",
     "worst_pick": "CRM (-16.9%)"
   },
   "Rick RF": {
-    "return_pct": 0.85,
-    "vs_sp500": -4.53,
-    "wins": 21,
-    "losses": 15,
+    "return_pct": 0.88,
+    "vs_sp500": -4.0,
+    "wins": 23,
+    "losses": 16,
     "best_pick": "KLAC (21.7%)",
     "worst_pick": "KLAC (-15.0%)"
   }
